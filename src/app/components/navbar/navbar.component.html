@@ -4,7 +4,7 @@
   <a mat-button routerLink="/crear-caso">Crear caso</a>
   <a mat-button routerLink="/consultar-caso">Consultar caso</a>
   <ng-container *ngIf="!isAuth">
-    <a mat-button (click)="login()" routerLink="/login">Login</a>
+    <a mat-button (click)="login()" routerLink="/">Login</a>
   </ng-container>
   <ng-container *ngIf="isAuth">
     <a mat-button (click)="logout()" routerLink="/">Logout</a>
