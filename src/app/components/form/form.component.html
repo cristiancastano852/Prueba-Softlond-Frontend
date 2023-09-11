@@ -1,9 +1,10 @@
 <div class="container">
   <form (ngSubmit)="onSubmit()" class="mx-auto my-4 centered-form">
+    <h3>{{ userName }} Ingrese la información de su caso:</h3>
     <div class="mb-3">
       <input
         matInput
-        placeholder="Título"
+        placeholder="TÍTULO"
         [(ngModel)]="case.title"
         name="title"
         required
@@ -12,8 +13,7 @@
     </div>
     <div class="mb-3">
       <textarea
-        matInput
-        placeholder="Descripción"
+        placeholder="DESCRIPCIÓN"
         [(ngModel)]="case.description"
         name="description"
         required
@@ -33,7 +33,9 @@
         }}</mat-option>
       </mat-select>
     </div>
-    <button mat-button color="primary" type="submit">Guardar</button>
+    <button mat-button color="primary" class="button" type="submit">
+      Guardar
+    </button>
   </form>
 
   <div *ngIf="ticketNumber" class="ticket-info">
@@ -42,6 +44,4 @@
   <div *ngIf="userName" class="user-info">
     <p><strong>Asesor asignado:</strong> {{ userName }}</p>
   </div>
-
-  <div></div>
 </div>
