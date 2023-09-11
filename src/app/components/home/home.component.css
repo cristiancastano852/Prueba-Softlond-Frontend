@@ -28,6 +28,7 @@
 .welcome-message li {
   margin-bottom: 5px;
   font-weight: normal;
+  padding: 2px;
 }
 
 .welcome-message p {
