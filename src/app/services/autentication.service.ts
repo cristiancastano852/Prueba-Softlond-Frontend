@@ -5,13 +5,13 @@ import { Injectable } from '@angular/core';
 })
 export class AutenticationService {
   constructor() {}
-  private _user: any = {}; // Propiedad privada
+  private _user: any = {};
 
   getUser(): any {
-    return this._user; // Getter
+    return this._user;
   }
 
   setUser(value: any) {
-    this._user = value; // Setter
+    this._user = value;
   }
 }
