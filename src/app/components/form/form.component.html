@@ -1,0 +1,47 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit()" class="mx-auto my-4 centered-form">
+    <div class="mb-3">
+      <input
+        matInput
+        placeholder="Título"
+        [(ngModel)]="case.title"
+        name="title"
+        required
+        class="custom-input-field"
+      />
+    </div>
+    <div class="mb-3">
+      <textarea
+        matInput
+        placeholder="Descripción"
+        [(ngModel)]="case.description"
+        name="description"
+        required
+        class="custom-input-field"
+      ></textarea>
+    </div>
+    <div class="mb-3">
+      <mat-select
+        placeholder="Tipo"
+        [(ngModel)]="case.type"
+        name="type"
+        required
+        class="custom-input-field"
+      >
+        <mat-option *ngFor="let type of caseTypes" [value]="type">{{
+          type
+        }}</mat-option>
+      </mat-select>
+    </div>
+    <button mat-button color="primary" type="submit">Guardar</button>
+  </form>
+
+  <div *ngIf="ticketNumber" class="ticket-info">
+    <p><strong>Ticket de tu caso:</strong> {{ ticketNumber }}</p>
+  </div>
+  <div *ngIf="userName" class="user-info">
+    <p><strong>Asesor asignado:</strong> {{ userName }}</p>
+  </div>
+
+  <div></div>
+</div>

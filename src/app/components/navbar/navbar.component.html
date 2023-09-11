@@ -1,0 +1,12 @@
+<mat-toolbar color="primary" class="navbar">
+  <span>TOSTADAS VALENCIA SAS</span>
+  <span class="spacer"></span>
+  <a mat-button routerLink="/crear-caso">Crear caso</a>
+  <a mat-button routerLink="/consultar-caso">Consultar caso</a>
+  <ng-container *ngIf="!isAuth">
+    <a mat-button (click)="login()" routerLink="/login">Login</a>
+  </ng-container>
+  <ng-container *ngIf="isAuth">
+    <a mat-button (click)="logout()" routerLink="/">Logout</a>
+  </ng-container>
+</mat-toolbar>

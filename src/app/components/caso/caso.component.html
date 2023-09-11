@@ -1,0 +1,23 @@
+<div class="center-content">
+  <form (submit)="buscarCaso()">
+    <input
+      matInput
+      placeholder="Número de Ticket"
+      [(ngModel)]="ticket"
+      name="ticket"
+      required
+      class="custom-input-field"
+    />
+    <button mat-button type="submit" class="custom-button">Buscar Caso</button>
+  </form>
+  <div *ngIf="casoEncontrado" class="case-info custom-background">
+    <h3>Detalles del Caso</h3>
+    <p><strong>Título:</strong> {{ casoEncontrado.title }}</p>
+    <p><strong>Descripción:</strong> {{ casoEncontrado.description }}</p>
+    <p><strong>Ticket:</strong> {{ casoEncontrado.ticket }}</p>
+    <p><strong>Estado:</strong> {{ casoEncontrado.status }}</p>
+    <p><strong>Tipo:</strong> {{ casoEncontrado.type }}</p>
+    <p><strong>Autor ID:</strong> {{ casoEncontrado.authorId }}</p>
+    <p><strong>Fecha de creación:</strong> {{ casoEncontrado.createdAt }}</p>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+/* Estilos CSS personalizados */
+.custom-input {
+  background-color: #31e63a; /* Cambia el color de fondo según tus preferencias */
+}
+
+/* Cambiar el color del botón */
+.custom-button {
+  background-color: #ff5722; /* Cambia el color según tus preferencias */
+  color: white; /* Cambia el color del texto del botón si es necesario */
+}
+
+/* Centrar contenido en la pantalla */
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Opcional: altura del 100% de la ventana */
+}
+
+/* Estilos para el contenedor del formulario */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Espacio entre los elementos */
+  max-width: 400px; /* Ancho máximo del formulario */
+  margin: 0 auto; /* Centrar horizontalmente */
+  padding: 20px; /* Espacio interior del formulario */
+}
+
+/* Estilos para el contenedor del input */
+.input-container {
+  width: 100%; /* Ancho del input al 100% del contenedor */
+}
+
+/* Estilos para el input */
+.custom-input-field {
+  background-color: #e0e0e0; /* Cambia el color de fondo según tus preferencias */
+  border: none; /* Sin borde */
+  border-radius: 4px; /* Borde redondeado */
+  padding: 10px; /* Espaciado interior del input */
+  font-size: 16px; /* Tamaño de fuente */
+}
+
+/* Estilos para el botón */
+.custom-button {
+  background-color: #ff5722; /* Cambia el color del botón según tus preferencias */
+  color: white; /* Color del texto del botón */
+  border: none; /* Sin borde */
+  border-radius: 4px; /* Borde redondeado */
+  padding: 19px 20px; /* Espaciado interior del botón (vertical horizontal) */
+  margin: 0px 10px; /* Espaciado exterior del botón (vertical horizontal) */
+  font-size: 16px; /* Tamaño de fuente */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+.custom-background {
+  background-color: #ffecec;
+  margin-top: 20px;
+  padding: 20px;
+}
