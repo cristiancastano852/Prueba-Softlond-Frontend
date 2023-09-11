@@ -13,9 +13,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CasoComponent } from './components/caso/caso.component';
-import { LoginComponent } from './components/login/login.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment } from '../environments/environments';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { environment } from '../environments/environments';
     FormComponent,
     NavbarComponent,
     CasoComponent,
-    LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,10 +37,8 @@ import { environment } from '../environments/environments';
     AppRoutingModule,
     MatToolbarModule,
     AuthModule.forRoot({
-      // domain: environment.auth0.domain,
-      // clientId: environment.auth0.clientId,
-      domain: 'dev-dx6e73unwecwen8d.us.auth0.com',
-      clientId: 'bPfg8gg4YXoOJ85eAKJjFMTsJb9jlhMg',
+      domain: environment.auth0.domain,
+      clientId: environment.auth0.clientId,
       authorizationParams: {
         redirect_uri: window.location.origin,
       },
