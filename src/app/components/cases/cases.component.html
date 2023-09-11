@@ -1,0 +1,25 @@
+<section class="casos">
+  <h2>Mis casos</h2>
+  <div
+    *ngIf="casosUsuario.length > 0; else noCasosTemplate"
+    class="case-container"
+  >
+    <div *ngFor="let caso of casosUsuario" class="case-info">
+      <h3>
+        <strong> Detalles del caso {{ caso.ticket }}</strong>
+      </h3>
+      <p><strong>Título:</strong> {{ caso.title }}</p>
+      <p class="description">
+        <strong>Descripción:</strong> {{ caso.description }}
+      </p>
+      <p><strong>Ticket:</strong> {{ caso.ticket }}</p>
+      <p><strong>Estado:</strong> {{ caso.status }}</p>
+      <p><strong>Tipo:</strong> {{ caso.type }}</p>
+      <p><strong>Fecha de creación:</strong> {{ caso.createdAt }}</p>
+    </div>
+  </div>
+</section>
+
+<ng-template #noCasosTemplate>
+  <div class="no-cases-message">No tienes casos para mostrar.</div>
+</ng-template>

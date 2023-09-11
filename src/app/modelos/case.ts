@@ -23,10 +23,7 @@ export enum CaseType {
   SOLICITUDES = 'SOLICITUDES',
 }
 
-export interface Assignee {
-  // Puedes definir las propiedades del asignatario aquí
-  // Por ejemplo, nombre, ID, etc.
-}
+export interface Assignee {}
 
 export enum UserRole {
   CLIENTE = 'CLIENTE',

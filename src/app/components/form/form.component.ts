@@ -3,7 +3,7 @@ import { AuthService } from '@auth0/auth0-angular';
 import { Case, CaseType } from '../../modelos/case';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AutenticationService } from '../../services/autentication.service';
+import { switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -14,11 +14,7 @@ import { AutenticationService } from '../../services/autentication.service';
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnInit {
-  constructor(
-    private http: HttpClient,
-    private auth: AuthService,
-    private autenticationService: AutenticationService
-  ) {}
+  constructor(private http: HttpClient, private auth: AuthService) {}
   usuarioAutenticado: any;
   DatosUser: any;
   user: any;
@@ -27,38 +23,48 @@ export class FormComponent implements OnInit {
   caseTypes = Object.values(CaseType);
   ticketNumber: string = '';
   userName: string = '';
+  asesorName: string = '';
   asesorId: string = '';
+  userEmail: string | null | undefined = null;
 
   ngOnInit(): void {
     this.auth.user$.subscribe((user) => {
       this.usuarioAutenticado = user;
+      this.userName = this.usuarioAutenticado.name;
     });
-    // this.autenticationService.getUser().subscribe((data: any) => {
-    //   console.log('Datos del usuario creadoAAAA:', data);
-    // });
   }
 
   async onSubmit() {
     try {
-      console.log('Iniciando sesioaaan');
-      this.auth.user$.subscribe(async (user) => {
-        this.usuarioAutenticado = user;
-        this.DatosUser = {
-          name: this.usuarioAutenticado.name,
-          email: this.usuarioAutenticado.email,
-        };
-        this.user = await this.http
-          .post('http://localhost:4000/users', this.DatosUser)
-          .toPromise();
-        this.case.authorId = this.user.user.id;
-        this.userName = this.user.user.name;
-        const data: any = await this.createCase(this.case).toPromise();
-        this.ticketNumber = data.case_.ticket;
-        this.asesorId = data.case_.authorId;
-      });
-    } catch (error) {
-      console.log('Error:', error);
-    }
+      this.auth.user$
+        .pipe(
+          switchMap((user) => {
+            this.usuarioAutenticado = user;
+            this.userEmail = this.usuarioAutenticado.email;
+            // BUSCAR EL USUARIO EN LA BASE DE DATOS CON ESE CORREO
+            return this.http.get(
+              `http://localhost:4000/users/${this.userEmail}`
+            );
+          }),
+          switchMap((user) => {
+            this.user = user;
+            this.case.authorId = this.user.user.id;
+            // CREAR EL CASO
+            return this.createCase(this.case);
+          }),
+          switchMap((data: any) => {
+            this.ticketNumber = data.case_.ticket;
+            this.asesorId = data.assignee.userId;
+            // OBTENER EL NOMBRE DEL ASESOR POR SU ID
+            return this.http.get(
+              `http://localhost:4000/user/id/${this.asesorId}`
+            );
+          })
+        )
+        .subscribe((asesorData: any) => {
+          this.asesorName = asesorData.user.name;
+        });
+    } catch (error) {}
   }
 
   createCase(data: Case) {

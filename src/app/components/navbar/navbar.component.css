@@ -1,11 +1,9 @@
-/* styles.css o styles.scss */
 .navbar {
   display: flex;
-  justify-content: space-between; /* Para espaciar los elementos */
+  justify-content: space-between;
   align-items: center;
   padding: 0 100px 0px 10px;
-  background-color: #ff5722;
-  /* consigurar tamaños del texto */
+  background-color: #fc7651;
   font-size: 1.2rem;
 }
 
@@ -15,5 +13,5 @@ body {
 
 .options {
   font-size: 1rem;
-  background-color: #ff5d2b;
+  background-color: #fa7f5d;
 }

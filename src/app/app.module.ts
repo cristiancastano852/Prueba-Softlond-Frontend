@@ -16,6 +16,7 @@ import { CasoComponent } from './components/caso/caso.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment } from '../environments/environments';
 import { HomeComponent } from './components/home/home.component';
+import { CasesComponent } from './components/cases/cases.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HomeComponent } from './components/home/home.component';
     NavbarComponent,
     CasoComponent,
     HomeComponent,
+    CasesComponent,
   ],
   imports: [
     BrowserModule,

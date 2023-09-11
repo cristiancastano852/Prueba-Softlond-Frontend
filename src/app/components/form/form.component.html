@@ -1,6 +1,7 @@
 <div class="container">
   <form (ngSubmit)="onSubmit()" class="mx-auto my-4 centered-form">
-    <h3>{{ userName }} Ingrese la información de su caso:</h3>
+    <h3>{{ userName }}</h3>
+    <h3>Ingrese la información de su caso:</h3>
     <div class="mb-3">
       <input
         matInput
@@ -41,7 +42,7 @@
   <div *ngIf="ticketNumber" class="ticket-info">
     <p><strong>Ticket de tu caso:</strong> {{ ticketNumber }}</p>
   </div>
-  <div *ngIf="userName" class="user-info">
-    <p><strong>Asesor asignado:</strong> {{ userName }}</p>
+  <div *ngIf="asesorName" class="user-info">
+    <p><strong>Asesor asignado:</strong> {{ asesorName }}</p>
   </div>
 </div>
