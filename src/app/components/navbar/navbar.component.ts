@@ -23,28 +23,11 @@ export class NavbarComponent implements OnInit {
       console.log('Estado de autenticación:', isAuthenticated);
       this.isAuth = isAuthenticated;
       if (isAuthenticated) {
-        this.router.navigate(['/crear-caso']);
+        this.router.navigate(['/home']);
       } else {
         this.router.navigate(['']);
       }
     });
-    // console.log('Iniciando sesion');
-    // this.auth.user$.subscribe((user) => {
-    //   this.usuarioAutenticado = user;
-    //   this.DatosUser = {
-    //     name: this.usuarioAutenticado.name,
-    //     email: this.usuarioAutenticado.email,
-    //   };
-    //   // console.log('Datos del usuario autenticado:', this.usuarioAutenticado);
-    //   this.user = this.http
-    //     .post('http://localhost:4000/users', this.DatosUser)
-    //     .subscribe((data) => {
-    //       // console.log('Datos del usuario creadoAAA:', data);
-    //       this.user = data;
-    //     });
-    //   this.autenticationService.setUser(this.user);
-    // console.log('Datos del usuario creado:', this.user);
-    // });
   }
 
   isAuth: boolean = false;
